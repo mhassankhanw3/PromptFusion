@@ -1,0 +1,470 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+  Note: The styles for this gradient grid background is heavily inspired by the creator of this amazing site (https://dub.sh) – all credits go to them! 
+*/
+
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+}
+
+.main:before {
+  background: radial-gradient(circle, rgba(2, 0, 36, 0) 0, #fafafa 100%);
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/assets/images/grid.svg");
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.4;
+  filter: invert(1);
+}
+
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      hsla(215, 98%, 61%, 1) 0px,
+      transparent 0%
+    ),
+    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, hsla(354, 98%, 61%, 1) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, hsla(256, 96%, 67%, 1) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, hsla(38, 60%, 74%, 1) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, hsla(222, 67%, 73%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, hsla(343, 68%, 79%, 1) 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(150%);
+  top: 80px;
+  opacity: 0.15;
+}
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+/* Tailwind Styles */
+
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+/* .black_btn {
+  @apply w-auto flex px-4 py-2 cursor-pointer text-center rounded-full bg-gradient-to-r from-purple-500 via-purple-800 to-purple-500 text-white focus:outline-none transition-all duration-300;
+} */
+
+.grad_btn {
+  /* width: fit-content; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 1.25rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 30px;
+  background: linear-gradient(
+      70deg,
+      #a855f7,
+      #a855f7,
+      #a855f7,
+      #9333ea,
+      #9333ea,
+      #9333ea
+    )
+    no-repeat;
+  background-size: 300%;
+  color: #fff;
+  border: none;
+  background-position: left center;
+  transition: background 0.3s ease;
+}
+
+.grad_btn:hover {
+  background-size: 350%;
+  background-position: right center;
+}
+.grad_form_btn {
+  /* width: fit-content; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.25rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  background: linear-gradient(
+      70deg,
+      #a855f7,
+      #a855f7,
+      #a855f7,
+      #9333ea,
+      #9333ea,
+      #9333ea
+    )
+    no-repeat;
+  background-size: 300%;
+  color: #fff;
+  border: none;
+  background-position: left center;
+  transition: background 0.3s ease;
+}
+
+.grad_form_btn:hover {
+  background-size: 350%;
+  background-position: right center;
+}
+
+.grad_form_btn_disabled {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.25rem;
+  cursor: not-allowed;
+  text-align: center;
+  border-radius: 8px;
+  background-color: #e9d5ff;
+  background-size: 300%;
+  color: #fff;
+  border: none;
+}
+
+.grad_form_cancel_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.25rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 8px;
+  background: linear-gradient(
+      70deg,
+      #fecaca,
+      #fecaca,
+      #fecaca,
+      #fca5a5,
+      #fca5a5,
+      #fca5a5
+    )
+    no-repeat;
+  background-size: 300%;
+  color: #b91c1c;
+  border: none;
+  background-position: left center;
+  transition: background 0.3s ease;
+}
+
+.grad_form_cancel_btn:hover {
+  background-size: 350%;
+  background-position: right center;
+}
+
+.outline_btn {
+  @apply rounded-full border border-gray-300 hover:border bg-gray-50 py-1.5 px-5 text-black transition-all hover:bg-gray-200 text-center text-sm font-inter flex items-center justify-center;
+}
+
+.head_text {
+  @apply mt-5 text-5xl font-extrabold leading-[1.15] text-black sm:text-6xl;
+}
+
+.orange_gradient {
+  @apply bg-gradient-to-r from-pink-600 via-pink-500 to-purple-600 bg-clip-text text-transparent;
+}
+
+.green_gradient {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent;
+}
+
+.blue_gradient {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent;
+}
+
+.desc {
+  @apply mt-5 text-lg text-gray-600 sm:text-xl max-w-2xl;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-blue-700 focus:outline-none focus:ring-0;
+}
+
+.copy_btn {
+  @apply w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur flex justify-center items-center cursor-pointer;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+/* Feed Component */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+/* Form Component */
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+/* Nav Component */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-zinc-700 tracking-wide;
+}
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
+}
+
+.dropdown_link {
+  @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
+}
+
+/* PromptCard Component */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.EmptyPage_Flex {
+  @apply mt-4 flex items-center justify-between relative;
+}
+
+.EmptyPage_Flex::after {
+  content: "";
+  display: block;
+  height: 2px;
+  width: 100%;
+  bottom: -40px;
+  position: absolute;
+  background-color: #e5e7eb;
+  /* border-radius: 0px 50px 50px 0px; */
+  transform: scaleY(1);
+  /* transform-origin: left; */
+  transition: transform 0.2s ease;
+}
+
+.EmptyPage_head {
+  @apply text-stone-800 sm:text-[26px] text-[18px];
+}
+.EmptyPage_button {
+  @apply rounded-[7px] border border-black outline-none bg-black hover:bg-transparent hover:text-black hover:border-[1.5px] hover:border-black sm:font-medium font-normal sm:text-[16px] text-[16px] sm:py-2 py-1 sm:px-4 px-3 transition-all text-gray-100;
+}
+
+.EmptyPage_Box {
+  @apply mt-[60px] bg-white rounded-[6px] p-14 mx-auto border border-[#e5e7eb] w-[100%] max-w-[100%];
+}
+.EmptyPage_Box_flex {
+  @apply flex flex-col items-center justify-center mx-auto;
+}
+.EmptyPage_Box_head {
+  @apply sm:text-[20px] text-[16px] text-center font-medium text-zinc-700;
+}
+.EmptyPage_Box_img {
+  @apply sm:w-[400px] w-[450px] sm:-mt-[50px] mt-[0px] -mb-[10px] max-w-[100%] mx-auto flex items-center justify-center;
+}
+
+.modal {
+  display: none;
+  /* Your modal styles */
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.modal-content h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.modal-content form {
+  margin-top: 20px;
+}
+
+.grad_follow_btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 50px;
+  /* Define your gradient background here */
+  background: linear-gradient(
+      70deg,
+      #a855f7,
+      #7c3aed,
+      #7c3aed,
+      #ec4899,
+      #ec4899,
+      #db2777
+    )
+    no-repeat;
+  background-size: 300%;
+  color: #fff;
+  border: none;
+  background-position: left center;
+  transition: background 0.3s ease;
+}
+
+.grad_follow_btn:hover {
+  background-size: 350%;
+  background-position: right center;
+}
+
+/* Define the keyframes for the shadow animation */
+@keyframes shadowAnimation {
+  0% {
+    box-shadow: 0 0.1px 0 1px #3b82f6;
+  }
+  15% {
+    box-shadow: 0 0.1px 0 1px rgba(255, 105, 180, 0.7);
+  }
+  30% {
+    box-shadow: 0 0.1px 0 1px rgba(75, 0, 130, 0.7);
+  }
+  45% {
+    box-shadow: 0 0.1px 0 1px rgba(0, 0, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0.1px 0 1px rgba(128, 0, 128, 0.7);
+  }
+  85% {
+    box-shadow: 0 0.1px 0 1px rgba(255, 105, 180, 0.7);
+  }
+  100% {
+    box-shadow: 0 0.1px 0 1px #db2777;
+  }
+}
+
+/* Apply the animation to the card element */
+.linear {
+  animation: shadowAnimation 5s linear infinite alternate; /* Adjust the duration and timing as needed */
+}
+
+.popover_shadow {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 52px, rgba(0, 0, 0, 0.22) 0px 1px 4px;
+}
+
+.loader {
+  margin-top: 50px;
+  --dim: 3rem;
+  width: var(--dim);
+  height: var(--dim);
+  position: relative;
+  animation: spin988 2s linear infinite;
+}
+
+.loader .circle {
+  --color: #9333ea;
+  --dim: 1.2rem;
+  width: var(--dim);
+  height: var(--dim);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+}
+
+.loader .circle:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(2) {
+  top: 0;
+  right: 0;
+}
+
+.loader .circle:nth-child(3) {
+  bottom: 0;
+  left: 0;
+}
+
+.loader .circle:nth-child(4) {
+  bottom: 0;
+  right: 0;
+}
+
+@keyframes spin988 {
+  0% {
+    transform: scale(0.5) rotate(0);
+  }
+
+  20%,
+  25% {
+    transform: scale(1) rotate(360deg);
+  }
+
+  45%,
+  50% {
+    transform: scale(0.5) rotate(360deg);
+  }
+
+  70%,
+  75% {
+    transform: scale(1) rotate(360deg);
+  }
+
+  95%,
+  100% {
+    transform: scale(0.5) rotate(360deg);
+  }
+}
